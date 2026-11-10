@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professor André Tavares — Hora Tavares | Aulas Particulares de Filosofia, Humanidades e Línguas</title>
+  <meta name="description" content="Aulas particulares personalizadas e on-line de Filosofia, Humanidades, Hebraico Bíblico, Grego Clássico, Inglês, Francês e Português para Estrangeiros com o Prof. André Tavares." />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="selection:bg-[#475C47] selection:text-white">
+
+  <!-- Barra de Navegação Responsiva e Discreta -->
+  <header class="sticky top-0 z-40 bg-[#FAF6EE]/95 backdrop-blur-md border-b border-[#475C47]/15 transition-all">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#inicio" class="flex items-center gap-2.5 text-[#2C352C] hover:opacity-80 transition-opacity">
+        <span class="font-serif-editorial text-xl sm:text-2xl font-semibold tracking-widest uppercase">Hora Tavares</span>
+      </a>
+
+      <!-- Links Desktop -->
+      <nav class="hidden md:flex items-center gap-6 text-xs font-medium tracking-wider uppercase text-[#2C352C]/85" aria-label="Menu principal">
+        <a href="#como-funciona" class="hover:text-[#475C47] transition-colors py-1">Como Funciona</a>
+        <a href="#cursos" class="hover:text-[#475C47] transition-colors py-1">Cursos</a>
+        <a href="#sobre-mim" class="hover:text-[#475C47] transition-colors py-1">Sobre Mim</a>
+        <a href="#perguntas-frequentes" class="hover:text-[#475C47] transition-colors py-1">FAQ</a>
+        <a href="#contato" class="hover:text-[#475C47] transition-colors py-1">Contato</a>
+        <button id="toggleEditPhotosBtn" type="button" class="ml-2 px-3 py-1.5 rounded-full text-[11px] font-semibold border border-[#475C47]/40 text-[#475C47] hover:bg-[#475C47] hover:text-white transition-colors" title="Permite testar ou substituir qualquer foto/ilustração da página pelas suas imagens originais">
+          Trocar Fotos
+        </button>
+      </nav>
+
+      <!-- Botão Menu Mobile -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button id="toggleEditPhotosMobileBtn" type="button" class="px-2.5 py-1 rounded-full text-[11px] font-semibold border border-[#475C47]/40 text-[#475C47]">
+          Fotos
+        </button>
+        <button id="mobileMenuBtn" type="button" class="p-2 rounded-lg text-[#2C352C] hover:bg-[#475C47]/10 focus:outline-none" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <svg id="menuIconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menuIconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile Retrátil -->
+    <div id="mobileMenuPanel" class="hidden md:hidden bg-[#FAF6EE] border-b border-[#475C47]/20 px-6 py-4 space-y-3">
+      <a href="#como-funciona" class="mobile-nav-link block py-1.5 text-sm font-medium tracking-wider uppercase text-[#2C352C] hover:text-[#475C47]">Como Funciona</a>
+      <a href="#cursos" class="mobile-nav-link block py-1.5 text-sm font-medium tracking-wider uppercase text-[#2C352C] hover:text-[#475C47]">Cursos</a>
+      <a href="#sobre-mim" class="mobile-nav-link block py-1.5 text-sm font-medium tracking-wider uppercase text-[#2C352C] hover:text-[#475C47]">Sobre Mim</a>
+      <a href="#perguntas-frequentes" class="mobile-nav-link block py-1.5 text-sm font-medium tracking-wider uppercase text-[#2C352C] hover:text-[#475C47]">Perguntas Frequentes</a>
+      <a href="#contato" class="mobile-nav-link block py-1.5 text-sm font-medium tracking-wider uppercase text-[#2C352C] hover:text-[#475C47]">Contato</a>
+    </div>
+
+    <!-- Aviso do Modo de Substituição de Fotos -->
+    <div id="photoEditBanner" class="hidden bg-[#475C47] text-[#FAF6EE] text-xs py-2 px-4 text-center">
+      <span><strong>Modo de Substituição de Imagens Ativo:</strong> Clique no botão <em>"Substituir imagem"</em> sobre qualquer foto ou selo para carregar seus arquivos originais do computador.</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================
+         SEÇÃO 1: HERO / APRESENTAÇÃO INICIAL
+    =========================================== -->
+    <section id="inicio" class="pt-10 pb-8 sm:pt-16 sm:pb-12 px-5 sm:px-8 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+        
+        <!-- Coluna da Esquerda: Foto do Professor em Arco -->
+        <div class="md:col-span-5 flex justify-center">
+          <div class="arch-frame arch-frame-hero w-full">
+            <img id="img-hero" src="assets/img/foto-hero.jpg" alt="Professor André Tavares" />
+            <button type="button" data-target-img="img-hero" class="photo-swap-badge">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Substituir foto Hero
+            </button>
+          </div>
+        </div>
+
+        <!-- Coluna da Direita: Textos e Logotipo Hora Tavares -->
+        <div class="md:col-span-7 flex flex-col items-center md:items-start text-center md:text-left">
+          <p class="font-serif-editorial text-lg sm:text-xl tracking-[0.28em] uppercase text-[#2C352C] mb-1">
+            PROFESSOR
+          </p>
+          <h1 class="font-serif-editorial text-4xl sm:text-5xl lg:text-6xl font-normal tracking-[0.06em] uppercase text-[#2C352C] leading-tight mb-6">
+            ANDRÉ TAVARES
+          </h1>
+
+          <div class="space-y-1 mb-6">
+            <p class="font-serif-editorial text-2xl sm:text-3xl font-semibold text-[#2C352C]">
+              Aulas Particulares
+            </p>
+            <p class="text-base sm:text-lg text-[#2C352C]/90 font-normal">
+              Personalizadas e On-line.
+            </p>
+          </div>
+
+          <p class="font-serif-editorial italic text-xl sm:text-2xl text-[#475C47] mb-8">
+            Filosofia, Humanidades e Línguas.
+          </p>
+
+          <!-- Emblema / Logotipo HORA TAVARES -->
+          <div class="relative inline-flex flex-col items-center mt-2 p-2">
+            <div id="logo-hero-container" class="w-36 h-36 sm:w-44 sm:h-44 flex items-center justify-center">
+              <img id="img-logo-hero" class="w-full h-full object-contain" alt="Logotipo Hora Tavares" src="assets/img/logo-hora-tavares.png" />
+              <svg id="svg-logo-hero" class="hidden" viewBox="0 0 160 160" class="w-full h-full text-[#2C352C]" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Emblema Hora Tavares">
+                <circle cx="80" cy="72" r="52" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.65"/>
+                <circle cx="80" cy="72" r="47" stroke="currentColor" stroke-width="1.2" opacity="0.85"/>
+                <!-- Estrela/Sol Superior Clássico -->
+                <circle cx="80" cy="36" r="4" fill="currentColor" opacity="0.8"/>
+                <path d="M80 27V30M80 42V45M71 36H74M86 36H89M73.5 29.5L75.5 31.5M84.5 40.5L86.5 42.5M86.5 29.5L84.5 31.5M75.5 40.5L73.5 42.5" stroke="currentColor" stroke-width="1"/>
+                <!-- Ilustração Clássica de Leão e Figura -->
+                <path d="M52 88C52 78 58 70 67 68L73 56C75 52 81 52 83 56L87 66C96 67 104 73 106 82C107 86 105 92 102 95M56 95L60 82M68 95L70 83M90 95L88 83M98 95L95 82" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Juba e Cabeça do Leão -->
+                <path d="M58 66C54 63 53 57 57 53C61 49 67 51 70 55C72 59 69 65 64 67" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <!-- Cauda e Linha de Chão -->
+                <path d="M104 76C110 72 113 65 109 60" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="M46 96H114" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="M54 100H106" stroke="currentColor" stroke-width="1" opacity="0.6" stroke-linecap="round"/>
+                <text x="80" y="142" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="14.5" font-weight="600" letter-spacing="3.5" fill="currentColor">HORA TAVARES</text>
+              </svg>
+            </div>
+            <button type="button" data-target-img="img-logo-hero" class="photo-swap-badge">
+              Substituir logo
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Divisor Botânico 1 (Ramo de Oliveira em Aquarela) -->
+    <div class="py-4 sm:py-6 flex justify-center items-center overflow-hidden" aria-hidden="true">
+      <svg class="w-56 sm:w-72 h-14" viewBox="0 0 320 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M35 34C95 29 155 24 285 31" stroke="#5E7153" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M90 30C78 18 62 16 52 22C64 28 76 30 90 30Z" fill="#768C69" fill-opacity="0.65"/>
+        <path d="M115 28C106 14 90 11 80 17C91 25 103 28 115 28Z" fill="#5A704E" fill-opacity="0.75"/>
+        <path d="M148 27C140 13 124 10 114 16C125 24 136 27 148 27Z" fill="#859B78" fill-opacity="0.7"/>
+        <path d="M182 27C192 13 208 11 218 17C207 25 194 27 182 27Z" fill="#5A704E" fill-opacity="0.7"/>
+        <path d="M215 28C227 16 243 15 253 21C241 28 229 29 215 28Z" fill="#768C69" fill-opacity="0.65"/>
+        <path d="M102 30C90 42 74 44 64 38C76 32 88 30 102 30Z" fill="#859B78" fill-opacity="0.65"/>
+        <path d="M136 28C126 42 110 45 100 39C111 31 124 28 136 28Z" fill="#687F5B" fill-opacity="0.75"/>
+        <path d="M170 28C180 42 196 44 206 38C195 30 182 28 170 28Z" fill="#859B78" fill-opacity="0.7"/>
+        <path d="M204 29C216 41 232 43 242 37C230 31 218 29 204 29Z" fill="#5A704E" fill-opacity="0.7"/>
+        <ellipse cx="128" cy="24" rx="4.5" ry="6" transform="rotate(-25 128 24)" fill="#475C47" fill-opacity="0.85"/>
+        <ellipse cx="164" cy="33" rx="4.5" ry="6" transform="rotate(20 164 33)" fill="#3D4F3D" fill-opacity="0.85"/>
+        <ellipse cx="198" cy="24" rx="4" ry="5.5" transform="rotate(30 198 24)" fill="#5E7153" fill-opacity="0.85"/>
+      </svg>
+    </div>
+
+    <!-- ==========================================
+         SEÇÃO 2: COMO FUNCIONA?
+    =========================================== -->
+    <section id="como-funciona" class="py-10 sm:py-14 px-5 sm:px-8 max-w-5xl mx-auto">
+      <h2 class="font-serif-editorial text-3xl sm:text-4xl lg:text-[42px] font-normal tracking-[0.06em] uppercase text-center text-[#2C352C] mb-10 sm:mb-14">
+        COMO FUNCIONA?
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+        <!-- Coluna da Esquerda -->
+        <div class="md:col-span-5 space-y-5 text-left">
+          <div class="space-y-1">
+            <p class="font-serif-editorial text-2xl sm:text-3xl font-semibold text-[#2C352C] leading-snug">
+              Você terá um professor de verdade.
+            </p>
+            <p class="font-serif-editorial italic text-xl sm:text-2xl text-[#475C47]">
+              Não uma aula gravada.
+            </p>
+          </div>
+
+          <p class="text-[15px] sm:text-base text-[#2A312A] leading-relaxed">
+            <em class="font-medium text-[#2C352C]">Não vendo um curso pronto</em>: construo um percurso com você. Cada aluno chega com um objetivo, uma rotina e um nível diferentes, e o plano de aulas parte disso.
+          </p>
+        </div>
+
+        <!-- Coluna da Direita (Tópicos/Bullets) -->
+        <div class="md:col-span-7">
+          <ul class="editorial-list text-[15px] sm:text-base text-[#2A312A] space-y-3.5">
+            <li>
+              <strong class="font-semibold text-[#2C352C]">Conversa inicial.</strong> Entendemos seu objetivo, seu nível e o tempo que você tem.
+            </li>
+            <li>
+              <strong class="font-semibold text-[#2C352C]">Plano feito para você.</strong> Escolho textos e exercícios em função do que você quer.
+            </li>
+            <li>
+              <strong class="font-semibold text-[#2C352C]">No seu ritmo.</strong> Avançamos quando você está pronto; se algo pedir mais tempo, voltamos.
+            </li>
+            <li>
+              <strong class="font-semibold text-[#2C352C]">Aula de verdade.</strong> Leitura, exercícios de gramática e conversa, sempre ao vivo e só com você.
+            </li>
+            <li>
+              <strong class="font-semibold text-[#2C352C]">Acompanhamento.</strong> Corrijo o que você escreve, dou retorno a cada exercício e ajusto o plano ao longo do caminho.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divisor Botânico 2 -->
+    <div class="py-4 sm:py-6 flex justify-center items-center overflow-hidden" aria-hidden="true">
+      <svg class="w-56 sm:w-72 h-14" viewBox="0 0 320 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M35 34C95 29 155 24 285 31" stroke="#5E7153" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M90 30C78 18 62 16 52 22C64 28 76 30 90 30Z" fill="#768C69" fill-opacity="0.65"/>
+        <path d="M115 28C106 14 90 11 80 17C91 25 103 28 115 28Z" fill="#5A704E" fill-opacity="0.75"/>
+        <path d="M148 27C140 13 124 10 114 16C125 24 136 27 148 27Z" fill="#859B78" fill-opacity="0.7"/>
+        <path d="M182 27C192 13 208 11 218 17C207 25 194 27 182 27Z" fill="#5A704E" fill-opacity="0.7"/>
+        <path d="M215 28C227 16 243 15 253 21C241 28 229 29 215 28Z" fill="#768C69" fill-opacity="0.65"/>
+        <path d="M102 30C90 42 74 44 64 38C76 32 88 30 102 30Z" fill="#859B78" fill-opacity="0.65"/>
+        <path d="M136 28C126 42 110 45 100 39C111 31 124 28 136 28Z" fill="#687F5B" fill-opacity="0.75"/>
+        <path d="M170 28C180 42 196 44 206 38C195 30 182 28 170 28Z" fill="#859B78" fill-opacity="0.7"/>
+        <path d="M204 29C216 41 232 43 242 37C230 31 218 29 204 29Z" fill="#5A704E" fill-opacity="0.7"/>
+        <ellipse cx="128" cy="24" rx="4.5" ry="6" transform="rotate(-25 128 24)" fill="#475C47" fill-opacity="0.85"/>
+        <ellipse cx="164" cy="33" rx="4.5" ry="6" transform="rotate(20 164 33)" fill="#3D4F3D" fill-opacity="0.85"/>
+        <ellipse cx="198" cy="24" rx="4" ry="5.5" transform="rotate(30 198 24)" fill="#5E7153" fill-opacity="0.85"/>
+      </svg>
+    </div>
+
+    <!-- ==========================================
+         SEÇÃO 3: CURSOS
+    =========================================== -->
+    <section id="cursos" class="py-10 sm:py-14 px-5 sm:px-8 max-w-5xl mx-auto">
+      <h2 class="font-serif-editorial text-3xl sm:text-4xl lg:text-[42px] font-normal tracking-[0.06em] uppercase text-center text-[#2C352C] mb-6">
+        CURSOS
+      </h2>
+
+      <!-- Filtro Rápido de Cursos (Auxiliar Responsivo) -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-12" role="tablist" aria-label="Filtrar cursos por área">
+        <button type="button" data-course-filter="all" class="course-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-[#475C47] text-white">
+          Todos (6)
+        </button>
+        <button type="button" data-course-filter="classicas" class="course-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all border border-[#475C47]/35 text-[#2C352C] hover:border-[#475C47]">
+          Línguas Clássicas
+        </button>
+        <button type="button" data-course-filter="filosofia" class="course-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all border border-[#475C47]/35 text-[#2C352C] hover:border-[#475C47]">
+          Filosofia e Humanidades
+        </button>
+        <button type="button" data-course-filter="modernas" class="course-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all border border-[#475C47]/35 text-[#2C352C] hover:border-[#475C47]">
+          Línguas Modernas
+        </button>
+      </div>
+
+      <div class="space-y-16 sm:space-y-20">
+
+        <!-- CURSO 1: HEBRAICO BÍBLICO -->
+        <article data-course-category="classicas" class="course-card grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
+          <div class="md:col-span-5 flex justify-center">
+            <div class="arch-frame arch-frame-course w-full">
+              <img id="img-curso-hebraico" src="assets/img/hebraico-biblico.jpg" alt="Ilustração Hebraico Bíblico" />
+              <button type="button" data-target-img="img-curso-hebraico" class="photo-swap-badge">
+                Substituir imagem
+              </button>
+            </div>
+          </div>
+          <div class="md:col-span-7 space-y-4 text-left">
+            <h3 class="font-serif-editorial text-2xl sm:text-3xl lg:text-[34px] font-normal tracking-[0.04em] uppercase text-[#2C352C] leading-tight">
+              HEBRAICO BÍBLICO
+            </h3>
+            <p class="font-serif-editorial text-xl sm:text-2xl font-semibold text-[#475C47]">
+              Aprenda Hebraico Bíblico do zero!
+            </p>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Compreenda as Escrituras no original, em seu contexto judaico, em seu próprio ritmo.
+            </p>
+            <ul class="editorial-list text-[15px] sm:text-base text-[#2A312A] pt-1">
+              <li><strong class="font-semibold text-[#2C352C]">Para quem é:</strong> interessados na Bíblia, estudantes de teologia, filosofia e letras, e quem quer ler o texto sem depender só de traduções.</li>
+              <li><strong class="font-semibold text-[#2C352C]">Como estudamos:</strong> alefbet e vocalização; vocabulário mais frequente; gramática na leitura de passagens curtas.</li>
+              <li><strong class="font-semibold text-[#2C352C]">Ponto de partida:</strong> do zero, sem pressa.</li>
+            </ul>
+            <div class="pt-3 flex justify-center md:justify-start">
+              <a href="https://wa.me/5531975086238?text=Ol%C3%A1%2C%20Prof.%20Andr%C3%A9!%20Gostaria%20de%20saber%20mais%20sobre%20as%20aulas." target="_blank" rel="noopener noreferrer" class="btn-filled">
+                FALE COM O PROFESSOR
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CURSO 2: GREGO CLÁSSICO -->
+        <article data-course-category="classicas" class="course-card grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
+          <div class="md:col-span-5 flex justify-center">
+            <div class="arch-frame arch-frame-course w-full">
+              <img id="img-curso-grego" src="assets/img/grego-classico.jpg" alt="Ilustração Grego Clássico" />
+              <button type="button" data-target-img="img-curso-grego" class="photo-swap-badge">
+                Substituir imagem
+              </button>
+            </div>
+          </div>
+          <div class="md:col-span-7 space-y-4 text-left">
+            <h3 class="font-serif-editorial text-2xl sm:text-3xl lg:text-[34px] font-normal tracking-[0.04em] uppercase text-[#2C352C] leading-tight">
+              GREGO CLÁSSICO
+            </h3>
+            <p class="font-serif-editorial text-xl sm:text-2xl font-semibold text-[#475C47]">
+              Estude Grego Clássico e vá direto às fontes!
+            </p>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Compreenda a língua que moldou nossa civilização e acesse o texto para além da tradução.
+            </p>
+            <ul class="editorial-list text-[15px] sm:text-base text-[#2A312A] pt-1">
+              <li><strong class="font-semibold text-[#2C352C]">Para quem é:</strong> quem quer ler filosofia, literatura, história ou o Novo Testamento no original, sem conhecimento prévio de grego.</li>
+              <li><strong class="font-semibold text-[#2C352C]">Como estudamos:</strong> alfabeto e pronúncia; gramática aprendida na leitura de frases e textos graduados; depois, os autores que importam para você.</li>
+              <li><strong class="font-semibold text-[#2C352C]">Ponto de partida:</strong> do zero. O ritmo é o seu.</li>
+            </ul>
+            <div class="pt-3 flex justify-center md:justify-start">
+              <a href="https://wa.me/5531975086238?text=Ol%C3%A1%2C%20Prof.%20Andr%C3%A9!%20Gostaria%20de%20saber%20mais%20sobre%20as%20aulas." target="_blank" rel="noopener noreferrer" class="btn-filled">
+                FALE COM O PROFESSOR
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CURSO 3: FILOSOFIA E HUMANIDADES -->
+        <article data-course-category="filosofia" class="course-card grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
+          <div class="md:col-span-5 flex justify-center">
+            <div class="arch-frame arch-frame-course w-full">
+              <img id="img-curso-filosofia" src="assets/img/filosofia-humanidades.jpg" alt="Ilustração Filosofia e Humanidades" />
+              <button type="button" data-target-img="img-curso-filosofia" class="photo-swap-badge">
+                Substituir imagem
+              </button>
+            </div>
+          </div>
+          <div class="md:col-span-7 space-y-4 text-left">
+            <h3 class="font-serif-editorial text-2xl sm:text-3xl lg:text-[34px] font-normal tracking-[0.04em] uppercase text-[#2C352C] leading-tight">
+              FILOSOFIA E HUMANIDADES
+            </h3>
+            <p class="font-serif-editorial text-xl sm:text-2xl font-semibold text-[#475C47]">
+              Aprofunde o seu olhar sobre o mundo.
+            </p>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Aulas individuais para quem quer entrar na história do pensamento, ler os clássicos com companhia ou enfrentar as grandes questões humanas com método.
+            </p>
+
+            <div class="space-y-2 pt-1">
+              <p class="font-semibold text-[15px] sm:text-base text-[#2C352C]">A quem se destina:</p>
+              <ul class="editorial-list text-[15px] sm:text-base text-[#2A312A]">
+                <li>Quem nunca estudou Filosofia e quer um começo sólido, sem jargão desnecessário.</li>
+                <li>Estudantes e pesquisadores que precisam de apoio em leituras, trabalhos e projetos.</li>
+                <li>Quem lê por conta própria e quer um interlocutor.</li>
+              </ul>
+            </div>
+
+            <div class="space-y-1.5 pt-1">
+              <p class="font-semibold text-[15px] sm:text-base text-[#2C352C]">Como são as aulas</p>
+              <p class="text-[15px] sm:text-base text-[#2A312A]">
+                Partimos de um texto. Eu situo o autor e o problema, lemos juntos, discutimos, e você escreve sobre o que leu. O percurso é desenhado a partir da sua pergunta, não de um programa fixo.
+              </p>
+            </div>
+
+            <div class="pt-3 flex justify-center md:justify-start">
+              <a href="https://wa.me/5531975086238?text=Ol%C3%A1%2C%20Prof.%20Andr%C3%A9!%20Gostaria%20de%20saber%20mais%20sobre%20as%20aulas." target="_blank" rel="noopener noreferrer" class="btn-filled">
+                FALE COM O PROFESSOR
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CURSO 4: INGLÊS -->
+        <article data-course-category="modernas" class="course-card grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
+          <div class="md:col-span-5 flex justify-center">
+            <div class="arch-frame arch-frame-course w-full">
+              <img id="img-curso-ingles" src="assets/img/ingles.jpg" alt="Ilustração Curso de Inglês" />
+              <button type="button" data-target-img="img-curso-ingles" class="photo-swap-badge">
+                Substituir imagem
+              </button>
+            </div>
+          </div>
+          <div class="md:col-span-7 space-y-4 text-left">
+            <h3 class="font-serif-editorial text-2xl sm:text-3xl lg:text-[34px] font-normal tracking-[0.04em] uppercase text-[#2C352C] leading-tight">
+              INGLÊS
+            </h3>
+            <p class="font-serif-editorial text-xl sm:text-2xl font-semibold text-[#475C47]">
+              Inglês pelo Método Natural
+            </p>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Aprenda inglês pelo contato direto com o texto, sem traduções artificiais.
+            </p>
+            <ul class="editorial-list text-[15px] sm:text-base text-[#2A312A] pt-1">
+              <li><strong class="font-semibold text-[#2C352C]">Como estudamos:</strong> leituras com vocabulário simplificado, que avançam até textos mais densos e clássicos; gramática e vocabulário treinados com exercícios; escrita corrigida em cada aula, além de prática de conversação.</li>
+              <li><strong class="font-semibold text-[#2C352C]">Ponto de partida:</strong> conversa inicial para definir seu nível e seu objetivo.</li>
+            </ul>
+            <div class="pt-3 flex justify-center md:justify-start">
+              <a href="https://wa.me/5531975086238?text=Ol%C3%A1%2C%20Prof.%20Andr%C3%A9!%20Gostaria%20de%20saber%20mais%20sobre%20as%20aulas." target="_blank" rel="noopener noreferrer" class="btn-filled">
+                FALE COM O PROFESSOR
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CURSO 5: FRANCÊS -->
+        <article data-course-category="modernas" class="course-card grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
+          <div class="md:col-span-5 flex justify-center">
+            <div class="arch-frame arch-frame-course w-full">
+              <img id="img-curso-frances" src="assets/img/frances.jpg" alt="Ilustração Curso de Francês" />
+              <button type="button" data-target-img="img-curso-frances" class="photo-swap-badge">
+                Substituir imagem
+              </button>
+            </div>
+          </div>
+          <div class="md:col-span-7 space-y-4 text-left">
+            <h3 class="font-serif-editorial text-2xl sm:text-3xl lg:text-[34px] font-normal tracking-[0.04em] uppercase text-[#2C352C] leading-tight">
+              FRANCÊS
+            </h3>
+            <p class="font-serif-editorial text-xl sm:text-2xl font-semibold text-[#475C47]">
+              Francês pelo Método Natural
+            </p>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Leia e escreva em francês desde o início, com textos graduados que evoluem até a literatura.
+            </p>
+            <ul class="editorial-list text-[15px] sm:text-base text-[#2A312A] pt-1">
+              <li><strong class="font-semibold text-[#2C352C]">Como estudamos:</strong> leitura e escrita pelo método natural, apoiadas em exercícios de gramática.</li>
+              <li><strong class="font-semibold text-[#2C352C]">Ponto de partida:</strong> do zero ou do seu nível atual.</li>
+            </ul>
+            <div class="pt-3 flex justify-center md:justify-start">
+              <a href="https://wa.me/5531975086238?text=Ol%C3%A1%2C%20Prof.%20Andr%C3%A9!%20Gostaria%20de%20saber%20mais%20sobre%20as%20aulas." target="_blank" rel="noopener noreferrer" class="btn-filled">
+                FALE COM O PROFESSOR
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CURSO 6: PORTUGUESE FOR FOREIGNERS -->
+        <article data-course-category="modernas" class="course-card grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
+          <div class="md:col-span-5 flex justify-center">
+            <div class="arch-frame arch-frame-course w-full">
+              <img id="img-curso-portugues" src="assets/img/portuguese-foreigners.jpg" alt="Illustration Portuguese for Foreigners" />
+              <button type="button" data-target-img="img-curso-portugues" class="photo-swap-badge">
+                Substituir imagem
+              </button>
+            </div>
+          </div>
+          <div class="md:col-span-7 space-y-4 text-left">
+            <h3 class="font-serif-editorial text-2xl sm:text-3xl lg:text-[34px] font-normal tracking-[0.04em] uppercase text-[#2C352C] leading-tight">
+              PORTUGUESE FOR FOREIGNERS
+            </h3>
+            <p class="font-serif-editorial text-xl sm:text-2xl font-semibold text-[#475C47]">
+              Learn Portuguese Beyond the Basics!
+            </p>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Connect deeply with the Lusophone world through its language and rich heritage.
+            </p>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Personalized classes, 100% online, natural method.
+            </p>
+            <div class="pt-3 flex justify-center md:justify-start">
+              <a href="https://wa.me/5531975086238?text=Hello%2C%20Prof.%20Andr%C3%A9!%20I%20would%20like%20to%20know%20more%20about%20the%20classes." target="_blank" rel="noopener noreferrer" class="btn-filled">
+                LEARN MORE
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Divisor Botânico 3 -->
+    <div class="py-4 sm:py-6 flex justify-center items-center overflow-hidden" aria-hidden="true">
+      <svg class="w-56 sm:w-72 h-14" viewBox="0 0 320 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M35 34C95 29 155 24 285 31" stroke="#5E7153" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M90 30C78 18 62 16 52 22C64 28 76 30 90 30Z" fill="#768C69" fill-opacity="0.65"/>
+        <path d="M115 28C106 14 90 11 80 17C91 25 103 28 115 28Z" fill="#5A704E" fill-opacity="0.75"/>
+        <path d="M148 27C140 13 124 10 114 16C125 24 136 27 148 27Z" fill="#859B78" fill-opacity="0.7"/>
+        <path d="M182 27C192 13 208 11 218 17C207 25 194 27 182 27Z" fill="#5A704E" fill-opacity="0.7"/>
+        <path d="M215 28C227 16 243 15 253 21C241 28 229 29 215 28Z" fill="#768C69" fill-opacity="0.65"/>
+        <path d="M102 30C90 42 74 44 64 38C76 32 88 30 102 30Z" fill="#859B78" fill-opacity="0.65"/>
+        <path d="M136 28C126 42 110 45 100 39C111 31 124 28 136 28Z" fill="#687F5B" fill-opacity="0.75"/>
+        <path d="M170 28C180 42 196 44 206 38C195 30 182 28 170 28Z" fill="#859B78" fill-opacity="0.7"/>
+        <path d="M204 29C216 41 232 43 242 37C230 31 218 29 204 29Z" fill="#5A704E" fill-opacity="0.7"/>
+        <ellipse cx="128" cy="24" rx="4.5" ry="6" transform="rotate(-25 128 24)" fill="#475C47" fill-opacity="0.85"/>
+        <ellipse cx="164" cy="33" rx="4.5" ry="6" transform="rotate(20 164 33)" fill="#3D4F3D" fill-opacity="0.85"/>
+        <ellipse cx="198" cy="24" rx="4" ry="5.5" transform="rotate(30 198 24)" fill="#5E7153" fill-opacity="0.85"/>
+      </svg>
+    </div>
+
+    <!-- ==========================================
+         SEÇÃO 4: SOBRE MIM
+    =========================================== -->
+    <section id="sobre-mim" class="py-10 sm:py-14 px-5 sm:px-8 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+        
+        <!-- Coluna da Esquerda: Texto Biográfico + Botão Vazado -->
+        <div class="md:col-span-7 space-y-4 text-left order-2 md:order-1">
+          <h2 class="font-serif-editorial text-3xl sm:text-4xl lg:text-[42px] font-normal text-[#2C352C] mb-4">
+            Sobre Mim
+          </h2>
+
+          <div class="space-y-4 text-[15px] sm:text-base text-[#2A312A] leading-relaxed">
+            <p>
+              Sou professor de Filosofia e de línguas há quase 20 anos, em Belo Horizonte e on-line.
+            </p>
+            <p>
+              Graduado em Filosofia pela Faculdade Jesuíta de Filosofia e Teologia em 2011, faço mestrado em Filosofia da Religião na mesma instituição. Antes disso, estudei Ciências Sociais na UFMG.
+            </p>
+            <p>
+              Lecionei Filosofia em escolas públicas, em cursos preparatórios, seminários e em vários cursos livres. Os temas do meu interesse ao longo desses anos têm sido aqueles situados nas áreas gerais da História da Filosofia, Ética e Filosofia da Religião.
+            </p>
+            <p>
+              Minha relação com as línguas nasceu do estudo sistemático, feito direto nos textos, com manuais consagrados e sempre mediado por bons professores.
+            </p>
+            <p>
+              Os estudos de hebraico são movidos pela relação com o Judaísmo e o povo judeu. O grego veio como condição para a Filosofia, e comecei meus estudos na Faculdade de Letras da UFMG. O inglês e o francês foram aquisições da vida e rotina de estudos, e me ajudaram muito. Mais recentemente surgiu a oportunidade de ensinar português a estrangeiros, uma grata surpresa. No fim, o que me conduziu foram os textos.
+            </p>
+            <p>
+              É o que levo para a aula: aprender lendo, com bons materiais e correção atenta.
+            </p>
+            <p>
+              Trabalho pelo método natural. O contato direto com o texto vem primeiro, e a gramática o sustenta com exercícios. A leitura começa com vocabulário simplificado e avança, no seu tempo, até textos densos e clássicos.
+            </p>
+            <p>
+              O que me faz professor? Além do conteúdo, a paciência e o interesse real em cooperar, ajudar e mediar o esforço de alguém em alcançar um nível a mais em seu desenvolvimento.
+            </p>
+          </div>
+
+          <div class="pt-5 flex justify-center md:justify-start">
+            <a href="https://wa.me/5531975086238?text=Ol%C3%A1%2C%20Prof.%20Andr%C3%A9!%20Gostaria%20de%20saber%20mais%20sobre%20as%20aulas." target="_blank" rel="noopener noreferrer" class="btn-outline">
+              ENTRE EM CONTATO
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna da Direita: Foto do Professor em Moldura Arredondada -->
+        <div class="md:col-span-5 flex justify-center order-1 md:order-2 md:sticky md:top-24">
+          <div class="rounded-editorial-frame w-full max-w-[340px] sm:max-w-[380px] aspect-[3/4]">
+            <img id="img-sobre-mim" src="assets/img/foto-sobre-mim.jpg" alt="Professor André Tavares — Sobre Mim" />
+            <button type="button" data-target-img="img-sobre-mim" class="photo-swap-badge">
+              Substituir foto Sobre Mim
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Divisor Botânico 4 -->
+    <div class="py-4 sm:py-6 flex justify-center items-center overflow-hidden" aria-hidden="true">
+      <svg class="w-56 sm:w-72 h-14" viewBox="0 0 320 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M35 34C95 29 155 24 285 31" stroke="#5E7153" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M90 30C78 18 62 16 52 22C64 28 76 30 90 30Z" fill="#768C69" fill-opacity="0.65"/>
+        <path d="M115 28C106 14 90 11 80 17C91 25 103 28 115 28Z" fill="#5A704E" fill-opacity="0.75"/>
+        <path d="M148 27C140 13 124 10 114 16C125 24 136 27 148 27Z" fill="#859B78" fill-opacity="0.7"/>
+        <path d="M182 27C192 13 208 11 218 17C207 25 194 27 182 27Z" fill="#5A704E" fill-opacity="0.7"/>
+        <path d="M215 28C227 16 243 15 253 21C241 28 229 29 215 28Z" fill="#768C69" fill-opacity="0.65"/>
+        <path d="M102 30C90 42 74 44 64 38C76 32 88 30 102 30Z" fill="#859B78" fill-opacity="0.65"/>
+        <path d="M136 28C126 42 110 45 100 39C111 31 124 28 136 28Z" fill="#687F5B" fill-opacity="0.75"/>
+        <path d="M170 28C180 42 196 44 206 38C195 30 182 28 170 28Z" fill="#859B78" fill-opacity="0.7"/>
+        <path d="M204 29C216 41 232 43 242 37C230 31 218 29 204 29Z" fill="#5A704E" fill-opacity="0.7"/>
+        <ellipse cx="128" cy="24" rx="4.5" ry="6" transform="rotate(-25 128 24)" fill="#475C47" fill-opacity="0.85"/>
+        <ellipse cx="164" cy="33" rx="4.5" ry="6" transform="rotate(20 164 33)" fill="#3D4F3D" fill-opacity="0.85"/>
+        <ellipse cx="198" cy="24" rx="4" ry="5.5" transform="rotate(30 198 24)" fill="#5E7153" fill-opacity="0.85"/>
+      </svg>
+    </div>
+
+    <!-- ==========================================
+         SEÇÃO 5: PERGUNTAS FREQUENTES (FAQ)
+    =========================================== -->
+    <section id="perguntas-frequentes" class="py-10 sm:py-16 px-5 sm:px-8 max-w-5xl mx-auto">
+      <h2 class="font-serif-editorial text-3xl sm:text-4xl lg:text-[42px] font-normal tracking-[0.06em] uppercase text-center md:text-left text-[#2C352C] mb-10 sm:mb-12">
+        PERGUNTAS FREQUENTES
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 items-start">
+        
+        <!-- Coluna da Esquerda: 7 Perguntas e Respostas -->
+        <div class="md:col-span-7 space-y-6 text-left">
+          
+          <div class="space-y-1.5 border-b border-[#475C47]/15 pb-4">
+            <h3 class="font-semibold text-base sm:text-[17px] text-[#2C352C]">
+              Como são as aulas?
+            </h3>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Individuais, ao vivo e on-line, por Google Meet, com duração de 50 minutos.
+            </p>
+          </div>
+
+          <div class="space-y-1.5 border-b border-[#475C47]/15 pb-4">
+            <h3 class="font-semibold text-base sm:text-[17px] text-[#2C352C]">
+              As aulas são gravadas?
+            </h3>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Não. Toda aula é ao vivo, e só com você.
+            </p>
+          </div>
+
+          <div class="space-y-1.5 border-b border-[#475C47]/15 pb-4">
+            <h3 class="font-semibold text-base sm:text-[17px] text-[#2C352C]">
+              Preciso saber algo antes de começar?
+            </h3>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Não. Grego e hebraico começam do zero. Em inglês, francês e português, fazemos uma conversa inicial para definir o ponto de partida.
+            </p>
+          </div>
+
+          <div class="space-y-1.5 border-b border-[#475C47]/15 pb-4">
+            <h3 class="font-semibold text-base sm:text-[17px] text-[#2C352C]">
+              Que material vamos usar?
+            </h3>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              O material é escolhido por mim, de acordo com seu objetivo: manuais de gramática e vocabulário, leituras graduadas e, aos poucos, textos mais densos e clássicos.
+            </p>
+          </div>
+
+          <div class="space-y-1.5 border-b border-[#475C47]/15 pb-4">
+            <h3 class="font-semibold text-base sm:text-[17px] text-[#2C352C]">
+              Quanto tempo leva para aprender?
+            </h3>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Depende do seu objetivo, da frequência das aulas e do tempo de estudo entre elas. Não prometo fluência em semanas; prometo um percurso claro e acompanhado.
+            </p>
+          </div>
+
+          <div class="space-y-1.5 border-b border-[#475C47]/15 pb-4">
+            <h3 class="font-semibold text-base sm:text-[17px] text-[#2C352C]">
+              Quanto custa?
+            </h3>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Os valores dependem da frequência das aulas. Envie-me uma mensagem pelo WhatsApp, e vamos conversar.
+            </p>
+          </div>
+
+          <div class="space-y-1.5 pb-2">
+            <h3 class="font-semibold text-base sm:text-[17px] text-[#2C352C]">
+              Posso remarcar uma aula?
+            </h3>
+            <p class="text-[15px] sm:text-base text-[#2A312A]">
+              Claro, desde que avise com 24 horas de antecedência.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Coluna da Direita: Ilustração de Mulher Lendo em Arco -->
+        <div class="md:col-span-5 flex justify-center md:sticky md:top-24">
+          <div class="arch-frame arch-frame-course w-full">
+            <img id="img-faq" src="assets/img/faq-leitura.jpg" alt="Ilustração Leitura — Perguntas Frequentes" />
+            <button type="button" data-target-img="img-faq" class="photo-swap-badge">
+              Substituir imagem
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       SEÇÃO 6: CONTATO / RODAPÉ
+  =========================================== -->
+  <footer id="contato" class="bg-[#475C47] text-[#FAF6EE] py-14 sm:py-20 px-5 sm:px-8 mt-8">
+    <div class="max-w-3xl mx-auto flex flex-col items-center text-center space-y-6">
+      
+      <h2 class="font-serif-editorial text-3xl sm:text-4xl lg:text-[42px] font-normal tracking-[0.1em] uppercase text-[#FAF6EE]">
+        CONTATO
+      </h2>
+
+      <p class="font-serif-editorial text-2xl sm:text-3xl font-medium text-[#FAF6EE]">
+        André Tavares
+      </p>
+
+      <!-- Links de Contato -->
+      <div class="space-y-3.5 text-base sm:text-lg flex flex-col items-center">
+        
+        <!-- E-mail -->
+        <a href="mailto:andretavares@protonmail.com" class="inline-flex items-center gap-2.5 text-[#FAF6EE]/95 hover:text-white underline-offset-4 hover:underline transition-all">
+          <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <span>andretavares@protonmail.com</span>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5531975086238?text=Ol%C3%A1%2C%20Prof.%20Andr%C3%A9!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20as%20aulas%20particulares." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-[#FAF6EE]/95 hover:text-white underline-offset-4 hover:underline transition-all">
+          <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.53 5.86l-1.53 5.59 5.733-1.504c1.693.924 3.633 1.454 5.701 1.454 6.627 0 12-5.373 12-12s-5.373-12-12.434-12z"/>
+          </svg>
+          <span>+55 31 975086238</span>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/horatavares/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 text-[#FAF6EE]/95 hover:text-white underline-offset-4 hover:underline transition-all">
+          <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>@horatavares</span>
+        </a>
+
+      </div>
+
+      <!-- Selo / Logo HORA TAVARES no Rodapé -->
+      <div class="pt-6 flex flex-col items-center">
+        <div class="w-36 h-36 sm:w-40 sm:h-40 flex items-center justify-center">
+          <img id="img-logo-footer" src="assets/img/logo-hora-tavares-rodape.png" alt="Selo Hora Tavares" class="w-full h-full object-contain" />
+          <svg class="hidden" viewBox="0 0 160 160" class="w-full h-full text-[#FAF6EE]" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Selo Hora Tavares">
+            <circle cx="80" cy="72" r="52" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2" opacity="0.65"/>
+            <circle cx="80" cy="72" r="47" stroke="currentColor" stroke-width="1.2" opacity="0.85"/>
+            <circle cx="80" cy="36" r="4" fill="currentColor" opacity="0.85"/>
+            <path d="M80 27V30M80 42V45M71 36H74M86 36H89M73.5 29.5L75.5 31.5M84.5 40.5L86.5 42.5M86.5 29.5L84.5 31.5M75.5 40.5L73.5 42.5" stroke="currentColor" stroke-width="1"/>
+            <path d="M52 88C52 78 58 70 67 68L73 56C75 52 81 52 83 56L87 66C96 67 104 73 106 82C107 86 105 92 102 95M56 95L60 82M68 95L70 83M90 95L88 83M98 95L95 82" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M58 66C54 63 53 57 57 53C61 49 67 51 70 55C72 59 69 65 64 67" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M104 76C110 72 113 65 109 60" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M46 96H114" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M54 100H106" stroke="currentColor" stroke-width="1" opacity="0.6" stroke-linecap="round"/>
+            <text x="80" y="142" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="14.5" font-weight="600" letter-spacing="3.5" fill="currentColor">HORA TAVARES</text>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Input de arquivo oculto para o modo de substituição de fotos -->
+  <input type="file" id="hiddenPhotoInput" accept="image/*" class="hidden" />
+
+  <script>
+    (function () {
+      // 1. Controle do Menu Mobile
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+      const menuIconOpen = document.getElementById('menuIconOpen');
+      const menuIconClose = document.getElementById('menuIconClose');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMobileMenu() {
+        if (!mobileMenuPanel) return;
+        const isHidden = mobileMenuPanel.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenuPanel.classList.remove('hidden');
+          menuIconOpen.classList.add('hidden');
+          menuIconClose.classList.remove('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          mobileMenuPanel.classList.add('hidden');
+          menuIconOpen.classList.remove('hidden');
+          menuIconClose.classList.add('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+      }
+
+      mobileNavLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (mobileMenuPanel && !mobileMenuPanel.classList.contains('hidden')) {
+            toggleMobileMenu();
+          }
+        });
+      });
+
+      // 2. Filtro de Cursos por Área
+      const filterButtons = document.querySelectorAll('.course-filter-btn');
+      const courseCards = document.querySelectorAll('.course-card');
+
+      filterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const selected = btn.getAttribute('data-course-filter') || 'all';
+
+          filterButtons.forEach(function (b) {
+            b.classList.remove('bg-[#475C47]', 'text-white');
+            b.classList.add('border', 'border-[#475C47]/35', 'text-[#2C352C]');
+          });
+          btn.classList.add('bg-[#475C47]', 'text-white');
+          btn.classList.remove('border', 'border-[#475C47]/35', 'text-[#2C352C]');
+
+          courseCards.forEach(function (card) {
+            const cat = card.getAttribute('data-course-category');
+            if (selected === 'all' || cat === selected) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // 3. Modo Interativo para Substituir Fotos pelas Originais
+      const toggleEditPhotosBtn = document.getElementById('toggleEditPhotosBtn');
+      const toggleEditPhotosMobileBtn = document.getElementById('toggleEditPhotosMobileBtn');
+      const photoEditBanner = document.getElementById('photoEditBanner');
+      const hiddenPhotoInput = document.getElementById('hiddenPhotoInput');
+      const swapBadges = document.querySelectorAll('.photo-swap-badge');
+      let currentTargetImgId = null;
+
+      function togglePhotoEditMode() {
+        const active = document.body.classList.toggle('edit-photos-mode');
+        if (photoEditBanner) {
+          photoEditBanner.classList.toggle('hidden', !active);
+        }
+        if (toggleEditPhotosBtn) {
+          toggleEditPhotosBtn.textContent = active ? 'Concluir Fotos' : 'Trocar Fotos';
+        }
+      }
+
+      if (toggleEditPhotosBtn) {
+        toggleEditPhotosBtn.addEventListener('click', togglePhotoEditMode);
+      }
+      if (toggleEditPhotosMobileBtn) {
+        toggleEditPhotosMobileBtn.addEventListener('click', togglePhotoEditMode);
+      }
+
+      swapBadges.forEach(function (badge) {
+        badge.addEventListener('click', function () {
+          currentTargetImgId = badge.getAttribute('data-target-img');
+          if (hiddenPhotoInput) {
+            hiddenPhotoInput.value = '';
+            hiddenPhotoInput.click();
+          }
+        });
+      });
+
+      if (hiddenPhotoInput) {
+        hiddenPhotoInput.addEventListener('change', function (e) {
+          const file = e.target.files && e.target.files[0];
+          if (!file || !currentTargetImgId) return;
+          const reader = new FileReader();
+          reader.onload = function (ev) {
+            const targetEl = document.getElementById(currentTargetImgId);
+            if (targetEl && ev.target && ev.target.result) {
+              targetEl.src = ev.target.result;
+              targetEl.classList.remove('hidden');
+              if (currentTargetImgId === 'img-logo-hero') {
+                const svgLogo = document.getElementById('svg-logo-hero');
+                if (svgLogo) svgLogo.classList.add('hidden');
+              }
+            }
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
